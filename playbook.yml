@@ -1,0 +1,6 @@
+---
+- name: Configure vManage Policies
+  hosts: localhost
+
+  tasks:
+  - include: tasks/vmanage_configure_wan_interface_g0-0.yml
