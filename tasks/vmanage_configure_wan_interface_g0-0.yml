@@ -1,0 +1,16 @@
+- name: Create Gig0/0 interface template for vEdges
+  uri:
+    url: "https://{{ hostvars['vmanage1'].ansible_host }}/dataservice/system/device/controllers"
+    method: POST
+    body:
+      j_username: "{{ vmanage_api_username  }}"
+      j_password: "{{ vmanage_api_password  }}"
+    body_format: form-urlencoded
+    return_content: yes
+    validate_certs: no
+  no_log:true
+  register: uri_results
+
+- name: printout
+  debug:
+    msg: "{{ uri_results }}"
